@@ -59,7 +59,7 @@ public class CalendarRecyclerView extends RecyclerView implements CalendarView {
         }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         setLayoutManager(linearLayoutManager);
         this.calendar = AUCalendar.getInstance();
     }
@@ -100,7 +100,7 @@ public class CalendarRecyclerView extends RecyclerView implements CalendarView {
 
     private void setupCalendarScroll() {
         PagerSnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(this);
+        //snapHelper.attachToRecyclerView(this);
         addOnChildAttachStateChangeListener(new OnChildAttachStateChangeListener() {
             @Override
             public void onChildViewAttachedToWindow(View view) {
