@@ -61,6 +61,10 @@ public class CalendarViewAdapter extends RecyclerView.Adapter<CalendarViewAdapte
     public void onBindViewHolder(final CalendarViewHolder viewHolder, final int position) {
         DateTime currentMonth = calendar.getMonths().get(position);
         viewHolder.monthView.setCurrentMonth(currentMonth);
+
+        if (viewInteractor != null) {
+            viewInteractor.onMonthBindView(viewHolder.monthView);
+        }
     }
 
     @Override
