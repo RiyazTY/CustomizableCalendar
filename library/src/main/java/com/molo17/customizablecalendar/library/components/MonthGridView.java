@@ -138,4 +138,8 @@ public class MonthGridView extends LinearLayout implements BaseView {
         this.currentMonth = currentMonth;
         setupCalendar();
     }
+
+    public DateTime getCurrentMonth() {
+        return currentMonth;
+    }
 }
