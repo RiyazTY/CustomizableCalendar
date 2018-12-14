@@ -97,4 +97,8 @@ public class CustomizableCalendar extends LinearLayout implements CustomizableCa
     public void setLayoutResId(int layoutResId) {
         this.layoutResId = layoutResId;
     }
+
+    public void scrollToLastMonth() {
+        calendarRecyclerView.scrollToPosition(calendarRecyclerView.getAdapter().getItemCount() - 1);
+    }
 }
