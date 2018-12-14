@@ -28,6 +28,7 @@ public class CalendarRecyclerView extends RecyclerView implements CalendarView {
     private Context context;
     private CustomizableCalendarPresenter presenter;
     private AUCalendar calendar;
+    private boolean scrollToLast;
     private
     @LayoutRes
     int monthResId = R.layout.calendar_view;
@@ -55,6 +56,7 @@ public class CalendarRecyclerView extends RecyclerView implements CalendarView {
         if (typedArray != null) {
             monthResId = typedArray.getResourceId(R.styleable.CustomizableCalendar_month_layout, R.layout.calendar_view);
             monthCellResId = typedArray.getResourceId(R.styleable.CustomizableCalendar_cell_layout, R.layout.calendar_cell);
+            scrollToLast = typedArray.getBoolean(R.styleable.CustomizableCalendar_scroll_to_last, false);
             typedArray.recycle();
         }
 
@@ -131,6 +133,9 @@ public class CalendarRecyclerView extends RecyclerView implements CalendarView {
                 }
             }
         });
+        if (scrollToLast) {
+            scrollToPosition(getAdapter().getItemCount() - 1);
+        }
     }
 
     @Override
